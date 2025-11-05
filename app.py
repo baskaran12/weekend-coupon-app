@@ -47,7 +47,7 @@ else:
     #current_weekend = today - timedelta(days=days_since_saturday)
     last_saturday = today - timedelta(days=days_since_saturday)
     last_sunday = last_saturday + timedelta(days=1)
-    editable = True
+    editable = False
 
 current_date_str = current_weekend.strftime("%Y-%m-%d")if  today.weekday() in [5, 6] else last_saturday.strftime("%Y-%m-%d")+ " / " + last_sunday.strftime("%Y-%m-%d")
 
@@ -97,4 +97,5 @@ if editable:
             st.rerun()
 else:
     st.info("🗓️ 週末ではありません — 最新の週末の記録を表示中（読み取り専用）。 ")
+
 
