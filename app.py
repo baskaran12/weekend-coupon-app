@@ -70,7 +70,7 @@ if not df.empty:
         df_filtered = df[(df["Date"]==last_saturday.strftime("%Y-%m-%d")) | (df["Date"]==last_sunday.strftime("%Y-%m-%d"))] 
     if not df_filtered.empty:
         st.subheader("📋 Weekend Records")
-        st.dataframe(df_filtered[['Date','Employee Name','Coupon Bought','Issued By']], use_container_width=True)
+        st.dataframe(df_filtered[['Date','Employee Name','Coupon Bought','Issued By']].rename(columns={'Date': '日付','Employee Name':'従業員名','Coupon Bought':'購入したクーポン','Issued By':'発行者'}), use_container_width=True)
     else:
         st.info("この週末のデータはまだありません。")
 else:
@@ -97,3 +97,4 @@ if editable:
             st.rerun()
 else:
     st.info("🗓️ 週末ではありません — 最新の週末の記録を表示中（読み取り専用）。 ")
+
